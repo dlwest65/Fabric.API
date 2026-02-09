@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Fabric.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "data/ProLaw/Matters",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:7200;http://localhost:5200"
+    }
+  }
+}
