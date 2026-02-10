@@ -3,7 +3,7 @@
     "Fabric.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "data/ProLaw/Matters",
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
