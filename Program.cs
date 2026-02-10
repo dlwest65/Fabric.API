@@ -1,6 +1,7 @@
 using System.Text;
 using Fabric;
 using Fabric.API.Middleware;
+using Fabric.Imprimatur;
 using Fabric.Telemetry;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Weave;
@@ -26,6 +27,9 @@ if (!string.IsNullOrEmpty(aiConnectionString))
 
 // Weave services (ReachClient, WeaveService, ServiceBusListener)
 builder.Services.AddWeaveServices();
+
+// Imprimatur services (Reach instance registration/validation)
+builder.Services.AddImprimaturServices();
 
 builder.Services.AddControllers();
 
@@ -99,6 +103,8 @@ static string BuildSplashHtml(string environmentName, bool isDev, string clientI
     sb.AppendLine("<tr><td>GET</td><td><code>/data/{database}/{tableName}/{id}</code></td><td>Get row by ID</td></tr>");
     sb.AppendLine("<tr><td>GET</td><td><code>/entity/{database}/{entityName}</code></td><td>Not yet implemented (501)</td></tr>");
     sb.AppendLine("<tr><td>GET</td><td><code>/entity/{database}/{entityName}/{id}</code></td><td>Not yet implemented (501)</td></tr>");
+    sb.AppendLine("<tr><td>POST</td><td><code>/api/reach/register</code></td><td>Register a Reach instance (requires X-Installer-Key)</td></tr>");
+    sb.AppendLine("<tr><td>POST</td><td><code>/api/reach/validate</code></td><td>Validate a Reach instance</td></tr>");
     sb.AppendLine("</table>");
 
     if (isDev && databases.Length > 0)

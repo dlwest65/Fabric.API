@@ -31,6 +31,13 @@ public class ApiKeyAuthMiddleware
             return;
         }
 
+        // Reach registration/validation endpoints handle their own auth
+        if (context.Request.Path.StartsWithSegments("/api/reach"))
+        {
+            await _next(context);
+            return;
+        }
+
         // If API key header is present, always use standard auth (even in dev)
         if (context.Request.Headers.TryGetValue("X-Api-Key", out var apiKeyHeader))
         {
