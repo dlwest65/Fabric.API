@@ -117,10 +117,9 @@ static string BuildSplashHtml(string environmentName, bool isDev, string clientI
     {
         sb.AppendLine("<h2>Try It</h2>");
         sb.AppendLine("<div class=\"links\">");
-        foreach (var db in databases)
-        {
-            sb.AppendLine($"  <a href=\"#\" onclick=\"testEndpoint('/data/{db}/Matters'); return false;\">/data/{db}/Matters</a>");
-        }
+        sb.AppendLine("  <a href=\"#\" onclick=\"testEndpoint('/data/ProLaw/Professionals'); return false;\">/data/ProLaw/Professionals</a>");
+        sb.AppendLine("  <a href=\"#\" onclick=\"testEndpoint('/data/ProLaw/Accounts'); return false;\">/data/ProLaw/Accounts</a>");
+        sb.AppendLine("  <a href=\"#\" onclick=\"testEndpoint('/data/ProLaw/Components'); return false;\">/data/ProLaw/Components</a>");
         sb.AppendLine("</div>");
 
         sb.AppendLine("<div id=\"results-panel\" style=\"display: none;\">");
